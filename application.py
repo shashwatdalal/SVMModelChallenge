@@ -19,7 +19,7 @@ def handle_data():
     train_x,test_x,train_y,test_y = train_test_split(X,Y,test_size=0.4)
     best_model.fit(train_x,train_y)
     accuracy = metrics.accuracy_score(test_y,best_model.predict(test_x))
-    conn = sqlite3.connect('.\databases\accuracy_student.db')
+    conn = sqlite3.connect('./databases/accuracy_student.db')
     c = conn.cursor()
     command = 'INSERT INTO student_accuracy VALUES (\'' + request.form['student'] +'\','+str(accuracy)+')'
     c.execute(command)
