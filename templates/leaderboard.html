@@ -15,7 +15,7 @@
 	}
 </style>
 </head>
-<body>
+<body style="background-color:  #ff3f3f">
 <section>
   
 	<center><h3 class="display-4">Leader-Board</h3></center>
@@ -25,13 +25,15 @@
     <tr>
 	    <center><th>Student</th></center>
       	    <center><th>Accuracy</th></center>
+	    <center><th>Visualization</th></center>
     </tr>
   </thead>
   <tbody>
     {% for entry in data %}
     <tr>
   	<td>{{ entry['name'] }}</td>
-	<td>{{entry['accuracy']}}</td>
+	<td>{{ entry['accuracy'] }}</td>
+	<td><img width="200" src="{{ url_for('static', filename = entry['image']) }}"></td>
     </tr>
     {% endfor %}
   </tbody>
